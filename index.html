@@ -1,5 +1,314 @@
-<html>
-  <title> HPU Cosmology Lab</title>
-  <head></head>
-  <body> This is a test</body>
-</html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Personal website of Alex Sobotka — teaching, research, and resources." />
+  <title>Alex Sobotka | Home</title>
+
+  <!-- Open Graph (nice link previews) -->
+  <meta property="og:title" content="Alex Sobotka" />
+  <meta property="og:description" content="Assistant Professor — teaching, research, and resources." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg: #0b1220;
+      --panel: rgba(255,255,255,.06);
+      --text: #eaf0ff;
+      --muted: rgba(234,240,255,.72);
+      --accent: #7dd3fc;       /* sky */
+      --accent2:#a78bfa;       /* violet */
+      --ring: rgba(125,211,252,.35);
+      --border: rgba(255,255,255,.14);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+      --max: 1100px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(167,139,250,.25), transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, rgba(125,211,252,.20), transparent 55%),
+        radial-gradient(700px 500px at 50% 90%, rgba(34,211,238,.12), transparent 60%),
+        var(--bg);
+      line-height:1.6;
+    }
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:24px; }
+
+    /* Top nav */
+    .nav{
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,18,32,.75), rgba(11,18,32,.35));
+      border-bottom: 1px solid var(--border);
+      z-index: 50;
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      padding:14px 24px;
+      max-width:var(--max);
+      margin:0 auto;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(125,211,252,.12);
+    }
+    .links{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+    .links a{
+      padding:8px 10px; border-radius:10px;
+      color:var(--muted);
+    }
+    .links a:focus, .links a:hover{
+      color:var(--text);
+      background: rgba(255,255,255,.07);
+      outline: none;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 8px 18px rgba(0,0,0,.25);
+      text-decoration:none !important;
+    }
+    .btn:hover{ border-color: rgba(125,211,252,.55); box-shadow: 0 0 0 6px var(--ring), var(--shadow); }
+
+    /* Hero */
+    header.hero{
+      padding: 42px 0 18px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .card{
+      background: var(--panel);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{ padding: 26px; }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--muted);
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+    h1{
+      margin: 14px 0 8px;
+      font-size: clamp(32px, 4.2vw, 48px);
+      line-height:1.1;
+      letter-spacing:-.7px;
+    }
+    .subtitle{ color:var(--muted); font-size: 16px; margin: 0 0 16px; max-width: 62ch; }
+    .cta{
+      display:flex; gap:12px; flex-wrap:wrap; margin-top: 18px;
+    }
+
+    .hero-side{
+      padding: 22px;
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+      justify-content:space-between;
+    }
+    .profile{
+      display:flex; gap:14px; align-items:center;
+    }
+    .avatar{
+      width: 64px; height:64px; border-radius: 18px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(125,211,252,.85), transparent 60%),
+        radial-gradient(circle at 70% 70%, rgba(167,139,250,.85), transparent 62%),
+        rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+    }
+    .meta strong{ display:block; font-size: 16px; }
+    .meta span{ display:block; color:var(--muted); font-size: 13px; }
+
+    .mini{
+      display:grid;
+      gap:10px;
+    }
+    .chip{
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.12);
+    }
+    .chip .label{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .chip .value{
+      margin-top:2px;
+      font-size: 14px;
+    }
+
+    /* Sections */
+    section{ margin: 18px 0; }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .section-card{ padding: 18px; }
+    .section-card h2{
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing:.2px;
+    }
+    .section-card p{ margin:0; color:var(--muted); }
+    .list{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .list li{ margin: 6px 0; }
+
+    /* Footer */
+    footer{
+      margin: 30px 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align:center;
+    }
+    .hr{
+      height:1px; background: rgba(255,255,255,.12);
+      margin: 22px auto;
+      max-width: var(--max);
+    }
+
+    /* Mobile */
+    @media (max-width: 860px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: 1fr; }
+      .nav-inner{ padding: 12px 16px; }
+      .wrap{ padding: 18px; }
+    }
+
+    /* Accessibility: focus ring */
+    :focus-visible{
+      outline: 3px solid rgba(125,211,252,.55);
+      outline-offset: 2px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav" aria-label="Primary">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <a href="#top" style="text-decoration:none">Alex Sobotka</a>
+      </div>
+
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="cv.pdf" aria-label="Download CV (PDF)">CV</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top" class="wrap">
+    <header class="hero" role="banner">
+      <div class="hero-grid">
+        <div class="card hero-main">
+          <span class="kicker">Assistant Professor • Physics & Astronomy</span>
+          <h1>Hi — I’m Alex.</h1>
+          <p class="subtitle">
+            I teach physics and astronomy and work on research at the intersection of
+            theory, computation, and big-picture questions about the universe.
+            <br><br>
+            <strong>Use this site</strong> for course info, research highlights, and resources.
+          </p>
+
+          <div class="cta">
+            <a class="btn" href="#research">Explore research</a>
+            <a class="btn" href="#teaching">Teaching & courses</a>
+            <a class="btn" href="#contact">Get in touch</a>
+          </div>
+        </div>
+
+        <aside class="card hero-side" aria-label="Quick info">
+          <div class="profile">
+            <div class="avatar" role="img" aria-label="Abstract profile image"></div>
+            <div class="meta">
+              <strong>Alex Sobotka</strong>
+              <span>Physics & Astronomy</span>
+              <span>High Point, NC</span>
+            </div>
+          </div>
+
+          <div class="mini">
+            <div class="chip">
+              <div class="label">Current focus</div>
+              <div class="value">Computational cosmology • early-universe ideas</div>
+            </div>
+            <div class="chip">
+              <div class="label">Office hours</div>
+              <div class="value"><em>Add your schedule here</em></div>
+            </div>
+            <div class="chip">
+              <div class="label">Latest update</div>
+              <div class="value" id="latestUpdate">Welcome — new site in progress.</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="about" class="card section-card" aria-labelledby="aboutTitle">
+      <h2 id="aboutTitle">About</h2>
+      <p>
+        Write a short bio here: what you teach, what your research is about, and what students/collaborators
+        can find on this site. Keep it to ~4–6 sentences.
+      </p>
+    </section>
+
+    <section class="grid-3" aria-label="Highlights">
+      <div id="research" class="card section-card">
+        <h2>Research</h2>
+        <p>2–3 bullets on your research themes, methods, and recent projects.</p>
+        <ul class="list">
+          <li>Theme #1 (e.g., alternative cosmological models)</li>
+          <li>Theme #2 (e.g., simulations / inference)</li>
+          <li>Theme #3 (e.g., pedagogy of astronomy)</li>
+        </ul>
+        <p style="margin-top:10px;">
+          <a class="btn" href="research.html">Research page</a>
+        </p>
+      </div>
+
+      <div id="teaching" class="card section-card">
+        <h2>Teaching</h2>
+        <p>Link students to your courses, syllabi, and learning resources.</p>
+        <ul class="list">
+          <li><a href="courses/astronomy.html">Intro Astronomy</a></li>
