@@ -1,7 +1,8 @@
 /* Accent color */
 :root {
   --grayblue: #163C57;
-  --red: #F5260A;
+  --royalblue: #2339B8;
+  --lighttan: #F7EDED;
 }
 
 a {
@@ -26,12 +27,12 @@ input[type="submit"] {
 
 
 #header {
-  background-color: var(--red);
+  background-color: var(--grayblue);
 }
 
 
 #banner {
-  background-color: var(--red);
+  background-color: var(--grayblue);
 }
 
 #banner h2,
