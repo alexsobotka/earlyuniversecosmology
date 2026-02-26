@@ -1,6 +1,7 @@
 /* Accent color */
 :root {
-  --accent: #571657;   /* example: blue */
+  --grayblue: #163C57;
+  --red: #F5260A;
 }
 
 a {
@@ -8,14 +9,14 @@ a {
 }
 
 a:hover {
-  color: #0f172a;
+  color: var(--red);
 }
 
 .button,
 button,
 input[type="submit"] {
-  background-color: var(--accent);
-  border-color: var(--accent);
+  background-color: var(--grayblue);
+  border-color: var(--grayblue);
 }
 
 .button:hover {
