@@ -10,7 +10,7 @@ a {
 }
 
 a:hover {
-  color: var(--red);
+  color: var(--lighttan);
 }
 
 .button,
@@ -21,8 +21,8 @@ input[type="submit"] {
 }
 
 .button:hover {
-  background-color: #3C1657;
-  border-color: #3C1657;
+  background-color: var(--lighttan);
+  border-color: var(--lighttan);
 }
 
 
