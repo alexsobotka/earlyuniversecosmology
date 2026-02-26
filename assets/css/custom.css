@@ -5,7 +5,7 @@
 }
 
 a {
-  color: var(--accent);
+  color: var(--grayblue);
 }
 
 a:hover {
@@ -26,12 +26,12 @@ input[type="submit"] {
 
 
 #header {
-  background-color: #0f172a;  /* dark slate */
+  background-color: var(--red);
 }
 
 
 #banner {
-  background-color: #020617;
+  background-color: var(--red);
 }
 
 #banner h2,
