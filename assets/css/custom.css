@@ -195,3 +195,84 @@ input[type="submit"]:hover {
   background: #0b1020 !important;
   color: #9aa6c1 !important;
 }
+
+/* ===========================
+   Banner HERO – right headshot
+   =========================== */
+
+#banner .content.hero {
+  padding: 3.5em 2em 3em;
+}
+
+#banner .hero-inner.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3em;
+  max-width: 68rem;
+  margin: 0 auto;
+}
+
+/* Left text */
+#banner .hero-copy {
+  flex: 1 1 auto;
+  text-align: left;
+  max-width: 44rem;
+}
+
+#banner .hero-title {
+  margin-top: 0.25em;
+  color: #b6c2e2 !important;
+}
+
+#banner .hero-blurb {
+  margin: 1.25em 0 1.75em;
+  line-height: 1.65;
+  color: #c7d2fe !important;
+}
+
+/* Right image */
+#banner .hero-media {
+  flex: 0 0 auto;
+}
+
+#banner .hero-headshot {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%; /* circle crop */
+  border: 2px solid rgba(34, 211, 238, 0.45);
+  box-shadow:
+    0 18px 50px rgba(0,0,0,0.6),
+    0 0 0 6px rgba(124, 131, 255, 0.12);
+}
+
+/* Buttons align left */
+#banner .hero-copy .actions {
+  text-align: left;
+}
+
+/* ---------------------------
+   Mobile responsiveness
+   --------------------------- */
+@media screen and (max-width: 736px) {
+  #banner .hero-inner.hero-right {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 1.5em;
+  }
+
+  #banner .hero-copy {
+    text-align: center;
+  }
+
+  #banner .hero-copy .actions {
+    text-align: center;
+  }
+
+  #banner .hero-headshot {
+    width: 140px;
+    height: 140px;
+  }
+}
+``
