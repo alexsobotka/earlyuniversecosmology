@@ -1,41 +1,128 @@
-/* Accent color */
-:root {
-  --grayblue: #163C57;
-  --royalblue: #2339B8;
-  --lighttan: #F7EDED;
+/* ===========================
+   Alex Sobotka site theme
+   (Overrides for HTML5UP TXT)
+   =========================== */
+
+/* 1) Color tokens */
+:root{
+  /* Core palette (light, academic, "cosmic" accent) */
+  --bg: #f5f7fb;          /* page background */
+  --surface: #ffffff;     /* cards/sections */
+  --text: #0b1220;        /* primary text */
+  --muted: #475569;       /* secondary text */
+
+  /* Your original accents (refined usage) */
+  --primary: #163C57;     /* was --grayblue */
+  --secondary: #2339B8;   /* was --royalblue */
+  --soft: #F7EDED;        /* was --lighttan */
+
+  /* UI */
+  --border: #e5e7eb;
+  --nav-bg: rgba(255,255,255,0.85);
+  --nav-text: #0b1220;
+
+  /* Link states */
+  --link: var(--primary);
+  --link-hover: var(--secondary);
+
+  /* Button */
+  --btn-bg: var(--primary);
+  --btn-hover: var(--secondary);
+  --btn-text: #ffffff;
+
+  /* Banner overlay */
+  --banner-overlay: rgba(22, 60, 87, 0.82);
 }
 
+/* 2) Base page colors */
+body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* Template sets body/input text color; override with better contrast */
+body, input, textarea, select {
+  color: var(--muted) !important;
+}
+
+/* Headings: make them read like headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text) !important;
+}
+
+/* 3) Links (fix hover contrast issue) */
 a {
-  color: var(--grayblue);
+  color: var(--link) !important;
 }
-
 a:hover {
-  color: var(--lighttan);
+  color: var(--link-hover) !important;
 }
 
-.button,
-button,
-input[type="submit"] {
-  background-color: var(--grayblue);
-  border-color: var(--grayblue);
+/* 4) Navigation bar */
+#nav {
+  background-color: var(--nav-bg) !important;
 }
 
-.button:hover {
-  background-color: var(--lighttan);
-  border-color: var(--lighttan);
+/* Nav items default text */
+#nav li a, #nav li span {
+  color: var(--nav-text) !important;
 }
 
+/* Nav hover/active */
+#nav li:hover a, #nav li:hover span,
+#nav li.active a, #nav li.active span {
+  background: var(--primary) !important;
+  color: #fff !important;
+}
 
+/* Current page pill */
+#nav li.current a {
+  background: var(--secondary) !important;
+  color: #fff !important;
+}
+
+/* 5) Buttons (fix white-on-lighttan problem) */
+.button, button, input[type="submit"], input[type="button"], input[type="reset"] {
+  background: var(--btn-bg) !important;
+  color: var(--btn-text) !important;
+  border-color: var(--btn-bg) !important;
+}
+
+.button:hover, button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
+  background: var(--btn-hover) !important;
+  border-color: var(--btn-hover) !important;
+}
+
+/* Alt buttons */
+.button.alt, button.alt, input[type="submit"].alt, input[type="button"].alt, input[type="reset"].alt {
+  background: var(--soft) !important;
+  color: var(--primary) !important;
+  border-color: var(--soft) !important;
+}
+
+/* 6) Main section borders (template uses green/gray bars) */
+#main {
+  border-top-color: var(--primary) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+/* 7) Header + Banner (you override these already) */
 #header {
-  background-color: var(--grayblue);
+  background-color: var(--primary) !important;
+}
+
+/* Banner overlay panel for readability */
+#banner .content {
+  background-color: var(--banner-overlay) !important;
+}
+
+/* Banner text */
+#banner h2, #banner p {
+  color: #e5e7eb !important;
 }
 
 
 #banner {
-  background-color: var(--grayblue);
+  filter: saturate(1.05) contrast(1.02);
 }
 
-#banner h2,
-#banner p {
-  color: #e5e7eb;
-}
