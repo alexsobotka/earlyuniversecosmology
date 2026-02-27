@@ -1,56 +1,75 @@
-/* ===========================
-   Alex Sobotka site theme
-   (Overrides for HTML5UP TXT)
-   =========================== */
+/* =========================================================
+   Dark Theme – Alex Sobotka | Early Universe Cosmology
+   Overrides for HTML5 UP "TXT"
+   ========================================================= */
 
-/* 1) Color tokens */
-:root{
-  /* Core palette (light, academic, "cosmic" accent) */
-  --bg: #f5f7fb;          /* page background */
-  --surface: #ffffff;     /* cards/sections */
-  --text: #0b1220;        /* primary text */
-  --muted: #475569;       /* secondary text */
+/* -----------------------------
+   1) Core color system
+   ----------------------------- */
+:root {
+  /* Surfaces */
+  --bg: #070a12;            /* page background */
+  --surface: #0b1020;       /* cards, sections */
+  --surface-2: #121a33;     /* subtle contrast panels */
 
-  /* Your original accents (refined usage) */
-  --primary: #163C57;     /* was --grayblue */
-  --secondary: #2339B8;   /* was --royalblue */
-  --soft: #F7EDED;        /* was --lighttan */
+  /* Text */
+  --text: #e6edf7;          /* primary text */
+  --muted: #a8b3c7;         /* secondary text */
+
+  /* Accents (cosmic, restrained) */
+  --primary: #22d3ee;       /* cyan highlight */
+  --secondary: #7c83ff;     /* cool blue-violet */
 
   /* UI */
-  --border: #e5e7eb;
-  --nav-bg: rgba(255,255,255,0.85);
-  --nav-text: #0b1220;
+  --border: rgba(226, 232, 240, 0.12);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
 
-  /* Link states */
+  /* Links */
   --link: var(--primary);
-  --link-hover: var(--secondary);
+  --link-hover: #9ae6f5;
 
-  /* Button */
-  --btn-bg: var(--primary);
-  --btn-hover: var(--secondary);
-  --btn-text: #ffffff;
+  /* Buttons */
+  --btn-bg: linear-gradient(135deg, #22d3ee, #7c83ff);
+  --btn-text: #06101a;
+
+  /* Nav */
+  --nav-bg: rgba(7, 10, 18, 0.9);
+  --nav-text: #e6edf7;
 
   /* Banner overlay */
-  --banner-overlay: rgba(22, 60, 87, 0.82);
+  --banner-overlay: rgba(6, 10, 24, 0.78);
 }
 
-/* 2) Base page colors */
+/* -----------------------------
+   2) Base page styling
+   ----------------------------- */
 body {
   background: var(--bg) !important;
   color: var(--text) !important;
 }
 
-/* Template sets body/input text color; override with better contrast */
 body, input, textarea, select {
   color: var(--muted) !important;
 }
 
-/* Headings: make them read like headings */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text) !important;
 }
 
-/* 3) Links (fix hover contrast issue) */
+/* Section/card feel */
+section, article, .box {
+  background: transparent;
+}
+
+.box {
+  background: var(--surface);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+/* -----------------------------
+   3) Links
+   ----------------------------- */
 a {
   color: var(--link) !important;
 }
@@ -58,71 +77,121 @@ a:hover {
   color: var(--link-hover) !important;
 }
 
-/* 4) Navigation bar */
+/* -----------------------------
+   4) Navigation bar
+   ----------------------------- */
 #nav {
   background-color: var(--nav-bg) !important;
+  backdrop-filter: blur(8px);
 }
 
-/* Nav items default text */
-#nav li a, #nav li span {
+#nav li a,
+#nav li span {
   color: var(--nav-text) !important;
 }
 
-/* Nav hover/active */
-#nav li:hover a, #nav li:hover span,
-#nav li.active a, #nav li.active span {
-  background: var(--primary) !important;
-  color: #fff !important;
+/* Hover / active pills */
+#nav li:hover a,
+#nav li:hover span,
+#nav li.active a,
+#nav li.active span {
+  background: rgba(34, 211, 238, 0.18) !important;
+  color: #ffffff !important;
 }
 
-/* Current page pill */
+/* Current page */
 #nav li.current a {
-  background: var(--secondary) !important;
-  color: #fff !important;
+  background: linear-gradient(135deg, #22d3ee, #7c83ff) !important;
+  color: #06101a !important;
 }
 
-/* 5) Buttons (fix white-on-lighttan problem) */
-.button, button, input[type="submit"], input[type="button"], input[type="reset"] {
+/* Dropdown menu */
+.dropotron {
+  background: #0b1020 !important;
+  border: 1px solid var(--border);
+}
+.dropotron li > a {
+  color: #c7d2fe !important;
+}
+.dropotron li:hover > a {
+  background: rgba(124, 131, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+/* -----------------------------
+   5) Buttons
+   ----------------------------- */
+.button,
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
   background: var(--btn-bg) !important;
   color: var(--btn-text) !important;
-  border-color: var(--btn-bg) !important;
+  border: 0 !important;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(34, 211, 238, 0.25);
 }
 
-.button:hover, button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
-  background: var(--btn-hover) !important;
-  border-color: var(--btn-hover) !important;
+.button:hover,
+button:hover,
+input[type="submit"]:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
 }
 
 /* Alt buttons */
-.button.alt, button.alt, input[type="submit"].alt, input[type="button"].alt, input[type="reset"].alt {
-  background: var(--soft) !important;
+.button.alt {
+  background: transparent !important;
   color: var(--primary) !important;
-  border-color: var(--soft) !important;
+  border: 2px solid rgba(34, 211, 238, 0.4) !important;
 }
 
-/* 6) Main section borders (template uses green/gray bars) */
-#main {
-  border-top-color: var(--primary) !important;
-  border-bottom-color: var(--border) !important;
+/* -----------------------------
+   6) Banner (hero section)
+   ----------------------------- */
+#banner {
+  filter: saturate(1.05) contrast(1.05);
 }
 
-/* 7) Header + Banner (you override these already) */
-#header {
-  background-color: var(--primary) !important;
-}
-
-/* Banner overlay panel for readability */
 #banner .content {
   background-color: var(--banner-overlay) !important;
+  backdrop-filter: blur(6px);
 }
 
-/* Banner text */
-#banner h2, #banner p {
-  color: #e5e7eb !important;
+#banner h2 {
+  color: #ffffff !important;
 }
 
-
-#banner {
-  filter: saturate(1.05) contrast(1.02);
+#banner p {
+  color: #b6c2e2 !important;
 }
 
+/* Banner CTA button */
+#banner .button {
+  background: transparent !important;
+  color: var(--primary) !important;
+  border: 2px solid rgba(34, 211, 238, 0.5) !important;
+}
+
+/* -----------------------------
+   7) Main section separators
+   ----------------------------- */
+#main {
+  background: var(--surface) !important;
+  border-top-color: #22d3ee !important;
+  border-bottom-color: rgba(124, 131, 255, 0.35) !important;
+}
+
+/* -----------------------------
+   8) Footer
+   ----------------------------- */
+#footer {
+  background: transparent;
+  color: var(--muted);
+}
+
+#copyright {
+  background: #0b1020 !important;
+  color: #9aa6c1 !important;
+}
